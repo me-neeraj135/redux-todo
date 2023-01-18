@@ -7,6 +7,8 @@ import App from "./Components/App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./Redux/Store/store";
+import { PersistGate } from "redux-persist/integration/react";
+import { persister } from "./Redux/Store/store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

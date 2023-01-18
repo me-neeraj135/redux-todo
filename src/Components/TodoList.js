@@ -10,9 +10,9 @@ import {
   removeTodo,
 } from "../Redux/Acton/action";
 function TodoList() {
-  const todos = useSelector(state => state.todos);
+  const todos = useSelector(state => state.todos.data);
   const dispatch = useDispatch();
-  console.log(todos, `todos`);
+
   return (
     <div className="">
       <ul className=" bg-zinc-200">
@@ -38,7 +38,7 @@ function TodoList() {
                 </span>
               </div>
               <span
-                onClick={e => dispatch(removeTodo(index))}
+                onClick={e => dispatch(removeTodo(todo.id))}
                 className="invisible flex items-center justify-center rounded-full p-3 w-4 h-4 border-solid border border-slate-500 text-xs  group-hover:visible cursor-pointer"
               >
                 ❌
@@ -48,7 +48,7 @@ function TodoList() {
         })}
       </ul>
 
-      <div className="flex justify-around py-4">
+      {/* <div className="flex justify-around py-4">
         <button
           className=" flex-auto  bg-blue-500 hover:bg-sky-700  text-white p-2 text-2xl rounded-full"
           onClick={() => dispatch(filterAll())}
@@ -68,7 +68,8 @@ function TodoList() {
         >
           incomplete
         </button>
-      </div>
+      </div> */}
+      <div className="p-4 bg-zinc-700"></div>
     </div>
   );
 }

@@ -1,32 +1,51 @@
 /** @format */
 
-const initialState = [];
+const initialState = {
+  data: [],
+};
 
 const todoReducer = (state = initialState, action) => {
-  console.log(action, state);
+  // console.log(action, state, `rd`);
   switch (action.type) {
-    case `ADD_TODO`:
-      return [...state, action.payload];
+    case "ADD_TODO":
+      return {
+        ...state,
+        data: [...state.data, action.payload],
+      };
 
-    case `REMOVE_TODO`:
-      state.splice(action.index, 1);
-      return [...state];
+    case "REMOVE_TODO":
+      return {
+        ...state,
+        data: [...state.data.filter(todo => todo.id !== action.id)],
+      };
 
-    case `isCompleted`:
-      state[action.index].isCompleted = !state[action.index].isCompleted;
-      return [...state];
+    case "IS_COMPLETED":
+      state.data[action.index].isCompleted =
+        !state.data[action.index].isCompleted;
+      return {
+        ...state,
+        data: [...state.data],
+      };
 
-    case `filterCompleted`:
-      console.log(state.filter(todo => todo.isCompleted));
-      return state.filter(todo => todo.isCompleted);
-
-    case `filterAll`:
-      console.log(state, `all`);
-
+    case `FILTER_ALL`:
       return state;
+
+      // case "FILTER_COMPLETED":
+      //   return {
+      //     ...state,
+
+      //     data: [...state.data.filter(todo => todo.isCompleted === true)],
+      //   };
+
+      // case "FILTER_INCOMPLETE":
+      return {
+        ...state,
+        data: [...state.data.filter(todo => todo.isCompleted === false)],
+      };
+
     default:
       return state;
   }
-};    
+};
 
 export default todoReducer;

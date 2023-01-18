@@ -1,11 +1,11 @@
 /** @format */
 
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addTodo } from "../Redux/Acton/action";
 
 function AddTodo() {
-  // let state = useSelector(state => console.log(state, `todo`));
+  // let state = useSelector(state => console.log(state, `add-todo`));
   const dispatch = useDispatch();
 
   const submitHandler = e => {

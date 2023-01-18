@@ -11,34 +11,33 @@ export const addTodo = content => {
   };
 };
 
-export const removeTodo = index => {
+export const removeTodo = id => {
   return {
-    type: `REMOVE_TODO`,
-    index,
+    type: "REMOVE_TODO",
+    id,
   };
 };
 
 export const isCompleted = index => {
   return {
-    type: `isCompleted`,
+    type: "IS_COMPLETED",
     index,
-  };
-};
-
-export const filterCompleted = () => {
-  return {
-    type: `filterCompleted`,
   };
 };
 
 export const filterAll = () => {
   return {
-    type: `filterAll`,
+    type: "FILTER_ALL",
+  };
+};
+export const filterCompleted = () => {
+  return {
+    type: "FILTER_COMPLETED",
   };
 };
 
 export const filterIncomplete = () => {
   return {
-    type: `filterIncomplete`,
+    type: "FILTER_INCOMPLETE",
   };
 };
